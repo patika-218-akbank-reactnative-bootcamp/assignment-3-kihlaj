@@ -1,12 +1,53 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { View, Text, Button, Image } from 'react-native'
+import React, { useContext } from 'react'
+import { CommonActions } from "@react-navigation/native";
+import { createStackNavigator } from '@react-navigation/stack';
 
-const Settings = () => {
+import { UserContext } from '../../context/user';
+import SignIn from '../../screens/SignIn';
+
+const Stack = createStackNavigator();
+
+const EditProfile = ({ navigation }) => {
+  <Text>xD</Text>
+}
+
+const SettingsScreen = ({ navigation }) => {
+  const { signOut } = useContext(UserContext);
+
   return (
-    <View>
-      <Text>Settings</Text>
+    <View style={{ flex: 1, justifyContent: 'space-around', marginHorizontal: 16 }}>
+      <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+        <Image source={{ uri: 'https://media-exp1.licdn.com/dms/image/C4D03AQHE1uR4C8lAUw/profile-displayphoto-shrink_800_800/0/1660657994960?e=1667433600&v=beta&t=arlws-pFWuT_xfZTQQAOtxFvPz1UBVNlertrJ9O53NA' }} style={{ width: 200, height: 200, borderRadius: 100 }} />
+      </View>
+      <View style={{ marginTop: 20 }}>
+        <Button
+          title="Toggle Theme"
+          color="#0088CC"
+        />
+      </View>
+      <View style={{ marginBottom: 60 }}>
+        <Button
+          title="Edit Profile"
+          color="#0088CC"
+          onPress={() => navigation.navigate('EditProfile')} />
+      </View>
+      <View style={{}}>
+        <Button
+          title="Logout"
+          color="#0088CC"
+          onPress={() => { signOut()}}
+        />
+      </View>
     </View>
   )
 }
 
-export default Settings
+const SettingsNavigator = () => (
+  <Stack.Navigator>
+    <Stack.Screen name="SettingsScreen" component={SettingsScreen} options={{ headerShown: false }} />
+    <Stack.Screen name="EditProfile" component={EditProfile} />
+  </Stack.Navigator>
+)
+
+export default SettingsNavigator;

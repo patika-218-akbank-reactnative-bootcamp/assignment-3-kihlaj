@@ -46,13 +46,19 @@ const App = () => {
     <NavigationContainer>
       <UserContext.Provider value={userContext}>
         <ThemeProvider>
-          {userToken ? (
-            <Stack.Navigator screenOptions={{ headerShown: false }}>
-              <Stack.Screen name="signIn" component={SignIn} />
-            </Stack.Navigator>
-          ) : (
-            <BottomNavigation />
-          )}
+          <Stack.Navigator>
+            {!userToken ? (
+              // Screens for unauthenticated user
+              <Stack.Group screenOptions={{ headerShown: false }}>
+                <Stack.Screen name="SignIn" component={SignIn} />
+              </Stack.Group>
+            ) : (
+              // Screens for authenticated user
+              <Stack.Group screenOptions={{ headerShown: false }}>
+                <Stack.Screen name="BottomNavigation" component={BottomNavigation} />
+              </Stack.Group>
+            )}
+          </Stack.Navigator>
         </ThemeProvider>
       </UserContext.Provider>
     </NavigationContainer>

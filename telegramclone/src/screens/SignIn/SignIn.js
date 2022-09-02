@@ -8,12 +8,16 @@ import countryCodes from '../../assets/data/countryCodes';
 
 const SignIn = () => {
   // const { theme } = useTheme();
-  const { signIn } = useContext(UserContext);
+  const { signIn, setUser } = useContext(UserContext);
   const [selectedCode, setSelectedCode] = useState();
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [phone, setPhone] = useState('');
   const [mode, setMode] = useState('signUp');
+
+  const handleSignIn = () => (
+    setUserToken('token')
+  )
 
   return (
     <View style={styles.container}>
@@ -26,7 +30,7 @@ const SignIn = () => {
         <TextInput placeholder="First Name" style={styles.firstNameInput} value={firstName} onChangeText={setFirstName} />
         <TextInput placeholder="Last Name" style={styles.lastNameInput} value={lastName} onChangeText={setLastName} />
         <View style={{ flexDirection: 'row' }}>
-          <Text style={{ marginTop: 20, fontSize: 13, color: 'black', backgroundColor: 'powderblue', padding: 5, borderRadius: 35, minWidth: 35}}>
+          <Text style={{ marginTop: 20, fontSize: 13, color: 'black', backgroundColor: 'powderblue', padding: 5, borderRadius: 35, minWidth: 35 }}>
             {selectedCode}
           </Text>
           <TextInput
@@ -55,9 +59,7 @@ const SignIn = () => {
             color="#179CDE"
             disabled={!phone || !firstName || !lastName}
             title="Sign Up"
-            onPress={() => {
-              signIn();
-            }}
+            onPress={() => signIn()}
           />
         </View>
       </View>
