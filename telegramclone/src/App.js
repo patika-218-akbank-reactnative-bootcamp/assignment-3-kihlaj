@@ -7,6 +7,7 @@ import SignIn from './screens/SignIn';
 import { ThemeContext } from './context/theme';
 import ThemeProvider from './provider/ThemeProvider';
 import { UserContext } from './context/user';
+import BottomNavigation from './navigation/bottomNavigation';
 
 const Stack = createStackNavigator();
 
@@ -45,12 +46,12 @@ const App = () => {
     <NavigationContainer>
       <UserContext.Provider value={userContext}>
         <ThemeProvider>
-          {!userToken ? (
+          {userToken ? (
             <Stack.Navigator screenOptions={{ headerShown: false }}>
               <Stack.Screen name="signIn" component={SignIn} />
             </Stack.Navigator>
           ) : (
-            <Text>Hi user!</Text>
+            <BottomNavigation />
           )}
         </ThemeProvider>
       </UserContext.Provider>
