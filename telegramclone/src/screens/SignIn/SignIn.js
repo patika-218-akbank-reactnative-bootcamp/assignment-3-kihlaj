@@ -23,21 +23,23 @@ const SignIn = () => {
         source={require('../../assets/images/telegram_logo.png')}
       />
       <View style={styles.input}>
-        <TextInput placeholder="First Name" style={styles.firstNameInput} />
-        <TextInput placeholder="Last Name" style={styles.lastNameInput} />
+        <TextInput placeholder="First Name" style={styles.firstNameInput} value={firstName} onChangeText={setFirstName} />
+        <TextInput placeholder="Last Name" style={styles.lastNameInput} value={lastName} onChangeText={setLastName} />
         <View style={{ flexDirection: 'row' }}>
-          <Text style={{ marginTop: 13, fontSize: 15, color: 'black' }}>
+          <Text style={{ marginTop: 20, fontSize: 13, color: 'black', backgroundColor: 'powderblue', padding: 5, borderRadius: 35, minWidth: 35}}>
             {selectedCode}
           </Text>
           <TextInput
             placeholder="Phone number"
             style={styles.phoneNumberInput}
             keyboardType="numeric"
+            value={phone}
+            onChangeText={setPhone}
             maxLength={10}
           />
         </View>
         <Picker
-          style={{ width: 250, backgroundColor: 'powderblue' }}
+          style={{ width: 250, backgroundColor: 'powderblue', marginTop: 5 }}
           selectedValue={selectedCode}
           onValueChange={itemValue => setSelectedCode(itemValue)}>
           {countryCodes.map(code => (
@@ -51,6 +53,7 @@ const SignIn = () => {
         <View style={{ marginTop: 20 }}>
           <Button
             color="#179CDE"
+            disabled={!phone || !firstName || !lastName}
             title="Sign Up"
             onPress={() => {
               signIn();

@@ -11,13 +11,14 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
   },
-  text: { color: 'black', fontSize: 24, marginBottom: 30 },
-  image: { width: 180, height: 180, resizeMode: 'cover', marginBottom: 30 },
+  text: { color: '#0088CC', fontSize: 24, marginBottom: 32 },
+  image: { width: 180, height: 180, resizeMode: 'cover', marginBottom: 28 },
   input: {},
-  firstNameInput: { borderBottomWidth: 2, borderBottomColor: ' #0088CC' },
-  lastNameInput: { borderBottomWidth: 2, borderBottomColor: ' #0088CC' },
+  firstNameInput: { borderBottomWidth: 2, borderBottomColor: 'powderblue' },
+  lastNameInput: { borderBottomWidth: 2, borderBottomColor: 'powderblue' },
   phoneNumberInput: {
     marginLeft: 5,
+    marginTop: 5
   },
   phoneNumberPicker: {},
 });
