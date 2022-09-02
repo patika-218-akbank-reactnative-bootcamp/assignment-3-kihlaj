@@ -1,42 +1,59 @@
-import { View, Text } from 'react-native';
-import React, { useEffect, useState } from 'react';
+import { View, Text, ActivityIndicator } from 'react-native';
+import React, { useEffect, useMemo, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+
 import SignIn from './screens/SignIn';
 import { ThemeContext } from './context/theme';
 import ThemeProvider from './provider/ThemeProvider';
+import { UserContext } from './context/user';
 
 const Stack = createStackNavigator();
 
 const App = () => {
-  const [currentUser, setCurrentUser] = useState(null);
+  const [userToken, setUserToken] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const unsubscribe = user => {
+  const userContext = useMemo(() => ({
+    signIn: () => {
+      setUserToken('token');
       setLoading(false);
-      if (user) {
-        setCurrentUser(user);
-      }
-    };
-    return () => unsubscribe();
+    },
+    signOut: () => {
+      setUserToken(null);
+      setLoading(false);
+    },
+  }));
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
   }, []);
 
-  if (!loading) {
-    return <Text>Loading...</Text>;
+  if (loading) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>
+          <ActivityIndicator size="large" />;
+        </Text>
+      </View>
+    );
   }
 
   return (
     <NavigationContainer>
-      <ThemeProvider>
-        {!currentUser ? (
-          <Stack.Navigator screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="signIn" component={SignIn} />
-          </Stack.Navigator>
-        ) : (
-          <Text>Hi user!</Text>
-        )}
-      </ThemeProvider>
+      <UserContext.Provider value={userContext}>
+        <ThemeProvider>
+          {!userToken ? (
+            <Stack.Navigator screenOptions={{ headerShown: false }}>
+              <Stack.Screen name="signIn" component={SignIn} />
+            </Stack.Navigator>
+          ) : (
+            <Text>Hi user!</Text>
+          )}
+        </ThemeProvider>
+      </UserContext.Provider>
     </NavigationContainer>
   );
 };
