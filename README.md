@@ -7,9 +7,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="./telegramclone/assets/images/ss-1" alt="Logo" width="80">
-    <img src="./telegramclone/assets/images/ss-2" alt="Logo" width="80">
-    <img src="./telegramclone/assets/images/ss-3" alt="Logo" width="80">
+    <img src="./telegramclone/assets/images/telegram_logo.png" alt="Logo" width="80">
   </a>
 
   <h3 align="center">Telegram Clone</h3>
@@ -29,7 +27,9 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot1]](https://example.com)
+[![Product Name Screen Shot][product-screenshot2]](https://example.com)
+[![Product Name Screen Shot][product-screenshot3]](https://example.com)
 
 I used react-native-vector-icons, react-navigation and react-native-picker along with style sheets.
 
@@ -109,4 +109,6 @@ Project Link: [Whatsapp Clone](https://github.com/patika-218-akbank-reactnative-
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/bbilginerdem/
-[product-screenshot]: ./WhatsappClone/assets/whatsapp-clone.png
+[product-screenshot1]: ./telegramclone/assets/images/ss-1.png
+[product-screenshot2]: ./telegramclone/assets/images/ss-2.png
+[product-screenshot3]: ./telegramclone/assets/images/ss-3.png
