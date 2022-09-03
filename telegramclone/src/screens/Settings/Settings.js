@@ -2,6 +2,7 @@ import { View, Text, Button, Image } from 'react-native'
 import React, { useContext } from 'react'
 import { CommonActions } from "@react-navigation/native";
 import { createStackNavigator } from '@react-navigation/stack';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import { UserContext } from '../../context/user';
 import SignIn from '../../screens/SignIn';
@@ -36,7 +37,7 @@ const SettingsScreen = ({ navigation }) => {
         <Button
           title="Logout"
           color="#0088CC"
-          onPress={() => { signOut()}}
+          onPress={() => { signOut() }}
         />
       </View>
     </View>
@@ -45,8 +46,14 @@ const SettingsScreen = ({ navigation }) => {
 
 const SettingsNavigator = () => (
   <Stack.Navigator>
-    <Stack.Screen name="SettingsScreen" component={SettingsScreen} options={{ headerShown: false }} />
-    <Stack.Screen name="EditProfile" component={EditProfile} />
+    <Stack.Screen name="SettingsScreen" component={SettingsScreen}
+      options={{ headerShown: false }}
+    // options={({ navigation, route }) => ({
+    // headerTitle: (props) => <Icon name="arrow-back-ios" size={25} color="grey" onPress={() => navigation.navigate('SettingsScreen')} />,
+    // })}
+    />
+    {/* <Stack.Screen name="ThemeScreen" component={ThemeScreen} options={{ headerShown: false }} /> */}
+    <Stack.Screen name="EditProfile" component={EditProfile} options={{ headerShown: false }} />
   </Stack.Navigator>
 )
 
