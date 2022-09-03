@@ -1,12 +1,22 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import React from 'react';
+import { View, FlatList } from 'react-native';
 
-const Contacts = () => {
+import styles from './Contacts.style';
+import ListItem from '../../components/ListItem';
+import contacts from '../../assets/data/contacts';
+
+const Chats = () => {
   return (
-    <View>
-      <Text>Contacts</Text>
+    <View style={{}}>
+      <FlatList
+        style={styles.container}
+        data={contacts}
+        renderItem={({ item }) => (
+          <ListItem contacts={item} keyExtractor={item.id} />
+        )}
+      />
     </View>
-  )
-}
+  );
+};
 
-export default Contacts
+export default Chats;
