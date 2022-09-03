@@ -30,6 +30,7 @@
 [![Product Name Screen Shot][product-screenshot1]](https://example.com)
 [![Product Name Screen Shot][product-screenshot2]](https://example.com)
 [![Product Name Screen Shot][product-screenshot3]](https://example.com)
+[![Product Name Screen Shot][product-screenshot4]](https://example.com)
 
 I used react-native-vector-icons, react-navigation and react-native-picker along with style sheets.
 
@@ -112,3 +113,4 @@ Project Link: [Whatsapp Clone](https://github.com/patika-218-akbank-reactnative-
 [product-screenshot1]: ./telegramclone/assets/images/ss-1.png
 [product-screenshot2]: ./telegramclone/assets/images/ss-2.png
 [product-screenshot3]: ./telegramclone/assets/images/ss-3.png
+[product-screenshot4]: ./telegramclone/assets/images/ss-4.png
