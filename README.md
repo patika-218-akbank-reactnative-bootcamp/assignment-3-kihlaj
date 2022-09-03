@@ -7,7 +7,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="./telegramclone/assets/images/telegram_logo.png" alt="Logo" width="80">
+    <img src="./telegramclone/src/assets/images/telegram_logo.png" alt="Logo" width="80">
   </a>
 
   <h3 align="center">Telegram Clone</h3>
