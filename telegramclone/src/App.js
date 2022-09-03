@@ -41,7 +41,7 @@ const App = () => {
       <UserContext.Provider value={userContext}>
         <ThemeProvider>
           <Stack.Navigator>
-            {userToken ? (
+            {!userToken ? (
               // Screens for unauthenticated user
               <Stack.Group
                 screenOptions={{

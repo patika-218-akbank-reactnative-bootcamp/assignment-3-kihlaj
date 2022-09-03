@@ -7,7 +7,9 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="./WhatsappClone/assets/WhatsApp-Logo.png" alt="Logo" width="80">
+    <img src="./telegramclone/assets/images/ss-1" alt="Logo" width="80">
+    <img src="./telegramclone/assets/images/ss-2" alt="Logo" width="80">
+    <img src="./telegramclone/assets/images/ss-3" alt="Logo" width="80">
   </a>
 
   <h3 align="center">Telegram Clone</h3>
@@ -29,7 +31,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-I used react-native-vector-icons, react-navigation and react-native-picker along with style sheets. 
+I used react-native-vector-icons, react-navigation and react-native-picker along with style sheets.
 
 Unfortunately, I couldn't finish the project completely due to problems I encountered. Currently, from contacts to chat is not possible, however in the future, I will solve that problem.
 
