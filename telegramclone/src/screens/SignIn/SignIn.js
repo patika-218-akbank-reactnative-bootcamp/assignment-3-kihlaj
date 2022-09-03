@@ -7,17 +7,11 @@ import styles from './SignIn.style';
 import countryCodes from '../../assets/data/countryCodes';
 
 const SignIn = () => {
-  // const { theme } = useTheme();
-  const { signIn, setUser } = useContext(UserContext);
+  const { signIn } = useContext(UserContext);
   const [selectedCode, setSelectedCode] = useState();
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [phone, setPhone] = useState('');
-  const [mode, setMode] = useState('signUp');
-
-  const handleSignIn = () => (
-    setUserToken('token')
-  )
 
   return (
     <View style={styles.container}>
@@ -27,12 +21,20 @@ const SignIn = () => {
         source={require('../../assets/images/telegram_logo.png')}
       />
       <View style={styles.input}>
-        <TextInput placeholder="First Name" style={styles.firstNameInput} value={firstName} onChangeText={setFirstName} />
-        <TextInput placeholder="Last Name" style={styles.lastNameInput} value={lastName} onChangeText={setLastName} />
-        <View style={{ flexDirection: 'row' }}>
-          <Text style={{ marginTop: 20, fontSize: 13, color: 'black', backgroundColor: 'powderblue', padding: 5, borderRadius: 35, minWidth: 35 }}>
-            {selectedCode}
-          </Text>
+        <TextInput
+          placeholder="First Name"
+          style={styles.firstNameInput}
+          value={firstName}
+          onChangeText={setFirstName}
+        />
+        <TextInput
+          placeholder="Last Name"
+          style={styles.lastNameInput}
+          value={lastName}
+          onChangeText={setLastName}
+        />
+        <View style={styles.pickerContainer}>
+          <Text style={styles.pickerText}>{selectedCode}</Text>
           <TextInput
             placeholder="Phone number"
             style={styles.phoneNumberInput}
@@ -43,7 +45,7 @@ const SignIn = () => {
           />
         </View>
         <Picker
-          style={{ width: 250, backgroundColor: 'powderblue', marginTop: 5 }}
+          style={styles.picker}
           selectedValue={selectedCode}
           onValueChange={itemValue => setSelectedCode(itemValue)}>
           {countryCodes.map(code => (
@@ -54,7 +56,7 @@ const SignIn = () => {
             />
           ))}
         </Picker>
-        <View style={{ marginTop: 20 }}>
+        <View style={styles.signIn}>
           <Button
             color="#179CDE"
             disabled={!phone || !firstName || !lastName}

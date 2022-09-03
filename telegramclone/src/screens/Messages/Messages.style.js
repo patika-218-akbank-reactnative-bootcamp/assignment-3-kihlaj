@@ -4,6 +4,4 @@ import { StyleSheet } from 'react-native';
 
 // const { theme } = useTheme();
 
-export default StyleSheet.create({
-
-});
+export default StyleSheet.create({});

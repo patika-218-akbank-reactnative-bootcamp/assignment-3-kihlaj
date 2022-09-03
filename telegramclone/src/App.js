@@ -1,13 +1,13 @@
-import { View, Text, ActivityIndicator } from 'react-native';
 import React, { useEffect, useMemo, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import SignIn from './screens/SignIn';
-import { ThemeContext } from './context/theme';
 import ThemeProvider from './provider/ThemeProvider';
 import { UserContext } from './context/user';
 import BottomNavigation from './navigation/bottomNavigation';
+import Chat from './screens/Chat';
+import Loading from './components/Loading';
 
 const Stack = createStackNavigator();
 
@@ -33,13 +33,7 @@ const App = () => {
   }, []);
 
   if (loading) {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>
-          <ActivityIndicator size="large" />;
-        </Text>
-      </View>
-    );
+    return <Loading size="large" />;
   }
 
   return (
@@ -49,17 +43,23 @@ const App = () => {
           <Stack.Navigator>
             {userToken ? (
               // Screens for unauthenticated user
-              <Stack.Group screenOptions={{
-                headerShown: false
-              }}>
+              <Stack.Group
+                screenOptions={{
+                  headerShown: false,
+                }}>
                 <Stack.Screen name="SignIn" component={SignIn} />
               </Stack.Group>
             ) : (
               // Screens for authenticated user
-              <Stack.Group screenOptions={{
-                headerShown: false,
-              }}>
-                <Stack.Screen name="BottomNavigation" component={BottomNavigation} />
+              <Stack.Group
+                screenOptions={{
+                  headerShown: false,
+                }}>
+                <Stack.Screen
+                  name="BottomNavigation"
+                  component={BottomNavigation}
+                />
+                <Stack.Screen name="Chat" component={Chat} />
               </Stack.Group>
             )}
           </Stack.Navigator>

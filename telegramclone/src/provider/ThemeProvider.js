@@ -1,4 +1,3 @@
-import { View, Text } from 'react-native';
 import React, { useState } from 'react';
 import { ThemeContext } from '../context/theme';
 
@@ -6,7 +5,7 @@ import lightTheme from '../constants/theme/light';
 import darkTheme from '../constants/theme/dark';
 
 const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState(lightTheme);
+  const [theme, setTheme] = useState('');
 
   const handleToggleTheme = theme => {
     if (theme.type === 'light') {

@@ -18,7 +18,18 @@ export default StyleSheet.create({
   lastNameInput: { borderBottomWidth: 2, borderBottomColor: 'powderblue' },
   phoneNumberInput: {
     marginLeft: 5,
-    marginTop: 5
+    marginTop: 5,
   },
-  phoneNumberPicker: {},
+  picker: { width: 250, backgroundColor: 'powderblue', marginTop: 5 },
+  pickerContainer: { flexDirection: 'row' },
+  pickerText: {
+    marginTop: 20,
+    fontSize: 13,
+    color: 'black',
+    backgroundColor: 'powderblue',
+    padding: 5,
+    borderRadius: 35,
+    minWidth: 35,
+  },
+  signIn: { marginTop: 20 },
 });
